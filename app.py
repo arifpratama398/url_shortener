@@ -5,6 +5,7 @@ from flask import redirect
 from flask import abort
 from flask import render_template
 from flask_pymongo import PyMongo
+from flask_cors import CORS
 
 import string
 import random
@@ -16,6 +17,7 @@ app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'bdnr_db'
 app.config['MONGO_URI'] = 'mongodb+srv://uas_bdnr:bdnr2020@bdnr.t8vum.mongodb.net/bdnr_db?retryWrites=true&w=majority'
 mongo = PyMongo(app)
+CORS(app)
 
 # utilities
 def avoid_duplicate(url):
