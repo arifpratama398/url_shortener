@@ -3,6 +3,7 @@ from flask import jsonify
 from flask import request
 from flask import redirect
 from flask import abort
+from flask import render_template
 from flask_pymongo import PyMongo
 
 import string
@@ -63,6 +64,15 @@ def go_to(key):
         return redirect(path['original_url'])
     else:
         abort(404)
+
+# web interface
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 # main section
 if __name__ == '__main__':
