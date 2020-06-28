@@ -1,0 +1,6 @@
+## Install Redirect app
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
